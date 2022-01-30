@@ -1,6 +1,6 @@
 Task TRACKING SHIPMEN Bost.
  requirement 
  
- git install
+ npm install
  
  npm start .......
