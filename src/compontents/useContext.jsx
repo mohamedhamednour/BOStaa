@@ -3,6 +3,7 @@ import i18n from "i18next";
 import { initReactI18next, Trans } from "react-i18next";
 import translationAR  from './arabicdata.js'
 import translationEn from './englishdata.js'
+import {auth} from '../firebase'
 
 const AuthContext = createContext();
 
@@ -125,16 +126,58 @@ export const AuthProvider = ({ children }) => {
 
 
   }
+  const [currentUser, setCurrentUser] = React.useState()
+  const [loading, setLoading] = React.useState(true)
+
+  function signup(email, password) {
+    return auth.createUserWithEmailAndPassword(email, password)
+  }
+
+  function login(email, password) {
+    return auth.signInWithEmailAndPassword(email, password)
+  }
+
+  function logout() {
+    return auth.signOut()
+  }
+
+  function resetPassword(email) {
+    return auth.sendPasswordResetEmail(email)
+  }
+
+  function updateEmail(email) {
+    return currentUser.updateEmail(email)
+  }
+
+  function updatePassword(password) {
+    return currentUser.updatePassword(password)
+  }
+
+  React.useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      setCurrentUser(user)
+      setLoading(false)
+    })
+
+    return unsubscribe
+  }, [])
 
   // object stote all value
   let contextData = {
-    handelApi: handelApi,
-    handelinpt: handelinpt,
-    todo: todo,
-    handelarabic: handelarabic,
-    handeleng: handeleng,
-    styleDir: styleDir,
-    styleDir2: styleDir2
+    handelApi,
+    handelinpt,
+    todo,
+    handelarabic,
+    handeleng,
+    styleDir,
+    styleDir,
+    currentUser,
+    login,
+    signup,
+    logout,
+    resetPassword,
+    updateEmail,
+    updatePassword
 
   };
 

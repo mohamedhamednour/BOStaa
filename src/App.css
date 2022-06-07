@@ -10,6 +10,10 @@ p{
 .audio{
   width: 90%;
 }
+
+Link{
+  text-decoration: none;
+}
 #navarabic{
   color: rgb(255, 0, 64) !important;
   font-size: 25px;
