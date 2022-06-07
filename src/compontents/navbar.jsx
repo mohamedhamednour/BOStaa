@@ -20,7 +20,7 @@ const Navbar = (perpos) => {
     <>
       <nav  id="navbarr"  class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img id="photonav" src={image} />{t('bosta')}</a>
+          <a class="navbar-brand" href="#"> {t('bosta')}</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span style={{ color: "red" }} class="navbar-toggler-icon"></span>
           </button>

@@ -1,23 +1,17 @@
 import React, { createContext, useRef } from "react";
-
 import i18n from "i18next";
 import { initReactI18next, Trans } from "react-i18next";
 import translationAR  from './arabicdata.js'
 import translationEn from './englishdata.js'
 
-
-
-
 const AuthContext = createContext();
 
 export default AuthContext;
 
-
-
 export const AuthProvider = ({ children }) => {
   const [todo, setTodo] = React.useState([]);
   const [id, setId] = React.useState(0);
-const Fals = false
+  const Fals = false
 
   // useRef is like a “box” that can hold a mutable value in its .current property, i used useref in order to convert dir style arabic to eng
 
@@ -33,49 +27,25 @@ const Fals = false
   const handelApi = (event) => {
   
 
-    try {
+    
       if (event.key === 'Enter') {
         fetch(`https://tracking.bosta.co/shipments/track/${id}`)
-          .then(results => results.json())
-          .then(data => {
-            setTodo(data);
-
-            // raw.wrtieFile('arabicdata.json', data)
-
-
-
-          });
-      } else {
-        fetch(`https://tracking.bosta.co/shipments/track/${id}`)
-          .then(results => results.json())
-          .then(data => {
-            setTodo(data);
-            console.log(data)
-
-          });
-
-      }
-    }
-    catch  {
-      window.location.reload();
-
-    }
-
-
-  }
+        .then(results => results.json())
+       .then(data => {
+         setTodo(data); });}}
 
   // i18n convert english to arabic
 
   const translationsEn = {
-    bosta: "bosta!",
+    bosta: "trust!",
     home: 'home',
-    Pricing: 'Pricing',
-    ContactSales: 'Contact Sales',
-    trakin: 'TRACKING SHIPMEN',
+    Pricing: 'Our Service ',
+    ContactSales: 'Contact US',
+    trakin: 'SERCH',
     sign: 'sign in',
-    number: 'Enter your tracking No.',
-    Shipments: 'Shipments',
-    Pricing: 'Pricing',
+    number: '',
+    Shipments: 'Service',
+    Pricing: 'Our Service',
     trackyourshipment: 'track your shipment ',
     hub: 'hub',
     datee: 'date',
@@ -88,16 +58,16 @@ const Fals = false
   };
 
   const translationsAR = {
-    bosta: "بوسطة!",
+    bosta: "ثقة!",
     home: 'الرئسية',
     Pricing: 'الاسعار',
-    ContactSales: 'كلم المبيعات',
-    trakin: 'تتبع شحنتك',
+    ContactSales: 'تواصل معنا  ',
+    trakin: 'بحث ',
     sign: 'تسجيل الدخول',
-    number: 'اكتب رقم الشحنة وتابع شحنتك خطوة بخطوة',
-    Shipments: 'الشحنات',
-    Pricing: 'الاسعار',
-    trackyourshipment: 'تتبع شحنتك',
+    number: '',
+    Shipments: 'ثقة',
+    Pricing: '',
+    trackyourshipment: 'خدمتنا ',
     hub: 'الفرع',
     datee: 'التاريخ',
     time: 'الوقت',
@@ -135,19 +105,7 @@ const Fals = false
       // useRef
       styleDir.current.style.direction = 'ltr';
 
-
-     
-
-
-
-
-
-
-
     }
-
-
-
   }
   // functions arabic
 
@@ -161,12 +119,6 @@ const Fals = false
 
       // useRef
       styleDir.current.style.direction = 'rtl';
-
-
-     
-
-
-
 
     }
 
