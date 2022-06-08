@@ -27,7 +27,7 @@ function Footer() {
       <div class="row ">
       <div class="col-12 col-sm-6  lastfooter1">
       <h3>{t('bosta')}</h3>
-      <p>help@bosta.co</p>
+      <p>help@trust.com</p>
       <span className='iconface'><AiFillFacebook/> <AiFillTwitterSquare/></span>
     </div>
     <div class="col-12 col-sm-6 lastfooter1">
@@ -35,7 +35,7 @@ function Footer() {
       <p>{t('Pricing')}</p>
       <span>{t('trackyourshipment')}</span>
     </div>
-<h5 id='lastfooter2' className='col'>Copyright ©2019 bosta.co</h5>            
+<h5 id='lastfooter2' className='col'>Copyright ©2022 trust.com</h5>            
           </div>
         
         </div>
